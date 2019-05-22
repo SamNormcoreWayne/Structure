@@ -6,9 +6,9 @@ using namespace std;
 
 struct BTreeNode
 {
-    BTreeNode(int data = 0, BTreeNode *dad=nullptr, BTreeNode *left=nullptr, BTreeNode *right=nullptr)
+    BTreeNode(int data = 0, BTreeNode *left=nullptr, BTreeNode *right=nullptr)
     {};
-    BTreeNode *dad=nullptr, *left=nullptr, *right=nullptr;
+    BTreeNode *left=nullptr, *right=nullptr;
     int data;
 };
 
