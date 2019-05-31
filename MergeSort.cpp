@@ -49,12 +49,17 @@ void MergeFunc(int left, int mid, int right, vector<int> s)
     {
         if (tmp[leftIndex] < tmp[rightIndex])
         {
-            if (tmp[rightIndex] < tmp[leftIndex])
+            if (tmp[rightIndex] < tmp[leftIndex + 1])
             {
                 /*
                  * for array, every element after leftIndex and before rightIndex will be removed into leftIndex + 1.
                  * for linked list, this is a insert operation.
                  */
+                temp = s[leftIndex + 1];
+                tmp[leftIndex + 1] = tmp[rightIndex];
+                for (int i = leftIndex + 2; i < rightIndex; ++i)
+                    tmp[i] = tmp[i + 1];
+                tmp[rightIndex] = temp;
                 rightIndex++;
                 continue;
             }
