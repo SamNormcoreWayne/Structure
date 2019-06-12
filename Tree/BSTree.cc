@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include "tree.h"
 // in tree.h, we defined virutal class BTree
 
@@ -67,4 +68,31 @@ bool BSTree::search(int some)
 void BSTree::deleteNode(int oldData)
 {
 
+}
+
+void BSTree::preOrderTraversal()
+{
+    vector<BTreeNode> Nodes;
+    BTreeNode Node = *(this->dad);
+    while (true)
+    {
+        if (Node.left != nullptr)
+        {
+            std::cout << Node.data << std::endl;
+            Nodes.push_back(Node);
+            Node = *(Node.left);
+        }
+        else if (Node.right != nullptr)
+        {
+            Node = *(Node.right);
+        }
+        else
+        {
+            if (Nodes.size() == 0)
+                break;
+            Node = Nodes.back();
+            Nodes.pop_back();
+        }
+        
+    }
 }
